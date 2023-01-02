@@ -1,5 +1,11 @@
 pipeline {
-    agent any 
+    agent any
+
+    environment {
+        dockid = credentials('dockerhub-id')
+        dockpw = credentials('dockerhub-pw')
+    }
+ 
     stages {
         stage('Build') { 
             steps {
@@ -12,8 +18,18 @@ pipeline {
             steps {
                 echo 'Building docker image'
                 script {
-                  sh "docker build -t prd-nginx:${env.BUILD_NUMBER} ."
-                  sh "docker image tag  prd-nginx:${env.BUILD_NUMBER} dock-registry/prd-nginx:${env.BUILD_NUMBER} "
+                  sh './build/build.sh'
+                }
+            }
+        }
+
+
+
+        stage('Push Image to Docker Repo') {
+            steps {
+                echo 'Uploading docker image to repo'
+                script {
+                  sh './push/push.sh'
                 }
             }
         }
