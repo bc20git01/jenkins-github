@@ -13,6 +13,6 @@ docker login -u $dockid -p $dockpw
 echo "*** Tagging image ***"
 # docker tag $IMAGE:$BUILD_TAG $REGISTRY/$IMAGE:$BUILD_TAG
 echo "*** Pushing image ***"
-docker push bc20dock01/webapp01:${env.BUILD_NUMBER}
+docker push bc20dock01/webapp01:$BUILD_NUMBER
 
 
