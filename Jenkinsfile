@@ -43,7 +43,11 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                echo 'Deploying...' 
+                echo 'Deploying Docker Image to Target Server'
+                script {
+                  sh './deploy/deploy.sh'
+                }
+ 
             }
         }
     }

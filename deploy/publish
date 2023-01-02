@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# IMAGE=$(cat ~/.auth|sed -n '1p')
+# PASS=$(cat ~/.auth|sed -n '2p')
+BUILD_TAG=$(cat ~/.auth|sed -n '1p')
+
+echo "..... Starg deploying....."
+
+docker login -u $dockid -p $dockpw
+docker run -itd bc20dock01/webapp01:$BUILD_TAG
+
+
