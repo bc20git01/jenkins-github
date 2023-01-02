@@ -8,7 +8,7 @@ echo $BUILD_TAG >> /tmp/.auth
 
 WORKSPACE=/home/jenkinssvc/pipe-app-deploy/jenkins-github
 
-scp -i /opt/key $WORKSPACE/deploy/publish 192.168.1.78:~/publish
-scp -i /opt/key /tmp/.auth 192.168.1.78:~/.auth
-ssh -i /opt/key 192.168.1.78 '~/publish'
+scp -o StrictHostKeyChecking=no -i /opt/key $WORKSPACE/deploy/publish 192.168.1.78:~/publish
+scp -o StrictHostKeyChecking=no -i /opt/key /tmp/.auth 192.168.1.78:~/.auth
+ssh -o StrictHostKeyChecking=no -i /opt/key 192.168.1.78 '~/publish'
 
