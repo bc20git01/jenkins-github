@@ -2,7 +2,7 @@
 
 # IMAGE=$(cat ~/.auth|sed -n '1p')
 # PASS=$(cat ~/.auth|sed -n '2p')
-BUILD_TAG=$(cat ~/.auth|sed -n '1p')
+BUILD_TAG=$(cat /tmp/.auth|sed -n '1p')
 
 echo "..... Starg deploying....."
 
