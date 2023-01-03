@@ -11,7 +11,7 @@ ssh -o StrictHostKeyChecking=no -i /opt/key jenkins@192.168.1.78
 
 echo "..... Start SCP Copy ....."
 
-scp -o StrictHostKeyChecking=no -i /opt/key $WORKSPACE/deploy/publish 192.168.1.78:~/publish
-scp -o StrictHostKeyChecking=no -i /opt/key /tmp/.auth 192.168.1.78:~/.auth
-ssh -o StrictHostKeyChecking=no -i /opt/key 192.168.1.78 '~/publish'
+scp -o StrictHostKeyChecking=no -i /opt/key $WORKSPACE/deploy/publish 192.168.1.78:/tmp/publish
+scp -o StrictHostKeyChecking=no -i /opt/key /tmp/.auth 192.168.1.78:/tmp/.auth
+ssh -o StrictHostKeyChecking=no -i /opt/key 192.168.1.78 "/tmp/publish"
 
