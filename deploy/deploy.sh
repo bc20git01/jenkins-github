@@ -3,7 +3,14 @@
 #  Get current vars
 # echo app > /tmp/.auth
 # echo $PASS >> /tmp/.auth
-echo $BUILD_TAG >> /tmp/.auth
+echo $BUILD_NUMBER > /tmp/.auth
+echo "..BUILD_TAG.."
+echo $BUILD_TAG 
+
+echo "..BUILD_NUMBER.."
+echo $BUILD_NUMBER
+
+
 # Pass as hidden files
 
 # WORKSPACE=/home/jenkinssvc/pipe-app-deploy/jenkins-github
